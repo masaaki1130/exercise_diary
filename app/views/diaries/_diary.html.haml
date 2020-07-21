@@ -1,0 +1,16 @@
+.content_post{:style => "background-image: url(#{diary.image});"}
+  .more
+    %span= image_tag 'arrow_top.png'
+    %ul.more_list
+      %li
+        = link_to '詳細', diary_path(diary.id), method: :get
+      %li
+        - if user_signed_in? && current_user.id == diary.user_id
+          = link_to '編集', edit_diary_path(diary.id), method: :get
+      %li
+        = link_to '削除', diary_path(diary.id), method: :delete
+  %p= diary.text
+  %span.name
+    %a{:href => "/users/#{diary.user.id}"}
+      %span 投稿者
+      = diary.user.nickname

@@ -1,0 +1,32 @@
+.contents.row
+  .content_post{:style => "background-image: url(#{@diary.image});"}
+    - if user_signed_in? && current_user.id == @diary.user_id
+      .more
+        %span= image_tag 'arrow_top.png'
+        %ul.more_list
+          %li
+            = link_to '編集', edit_diary_path(@diary.id), method: :get
+          %li
+            = link_to '削除', diary_path(@diary.id), method: :delete
+    %p= @diary.text
+    %span.name
+      %a{:href => "/users/#{@diary.user.id}"}
+        %span 投稿者
+        = @diary.user.nickname
+  .container
+    - if current_user
+      = form_with(model: [@diary, @comment], local: true) do |form|
+        = form.text_area :text, placeholder: "コメントする", rows: "2"
+        = form.submit "SEND"
+    - else
+      %strong
+        %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+    .comments
+      %h4 ＜コメント一覧＞
+      - if @comments
+        - @comments.each do |comment|
+          %p
+            %strong
+              = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              ：
+            = comment.text
