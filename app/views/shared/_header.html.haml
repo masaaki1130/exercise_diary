@@ -1,7 +1,7 @@
 %header.header
   .header__bar.row
     %h1.grid-6
-      %a{:href => "/"} PicTweet
+      = link_to "exercise_diary", root_path, class: "post"
     - if user_signed_in?
       .user_nav.grid-6
         %span

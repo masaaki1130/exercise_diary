@@ -2,14 +2,15 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Pictweet
+    %title exercise_diary
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'shared/header'
+    = render 'shared/exhibition'
     = yield
     %footer
       %p
-        Copyright PicTweet 2019.
+        exercise_diary 2019.
