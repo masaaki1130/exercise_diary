@@ -1,5 +1,5 @@
-.contents.row
-  .container
+.diary
+  .diarymain
     = form_with(model: @diary, local: true) do |form|
       %h3 投稿する
       = render partial: "form", locals: { form: form }

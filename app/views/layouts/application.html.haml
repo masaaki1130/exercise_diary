@@ -6,11 +6,10 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application'
   %body
     = render 'shared/header'
-    = render 'shared/exhibition'
     = yield
     %footer
       %p
-        exercise_diary 2019.
+        exercise_diary 2020.

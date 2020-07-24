@@ -1,3 +1,15 @@
-= form.text_field :image, placeholder: "Image Url"
-= form.text_area :text, placeholder: "text", rows: "10"
+#image-box-1
+  .item-num-0#image-box__container
+    .input-area
+      %label{class: "label-box"}
+        =  form.file_field :image, class: 'Hidden', id:"img-file"
+        %pre.input-area-visible クリックしてファイルをアップロード
+      %label{for: "img-file"}
+        %i.fas.fa-camera
+    .input__content
+      %label.input__content--day
+      日記の日付を入力してください
+      = form.date_field :diary_day
+= form.text_area :text, placeholder: "題名を入力してください"
+= form.text_area :content, placeholder: "内容を記入してください", rows: "10"
 = form.submit "SEND"
