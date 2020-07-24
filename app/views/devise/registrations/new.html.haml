@@ -7,21 +7,21 @@
         = f.label :nickname
         %em (6 characters maximum)
         %br/
-        = f.text_field :nickname, autofocus: true, maxlength: "6"
+        = f.text_field :nickname, {placeholder: "ニックネームを入力してください", autofocus: true, maxlength: "6"}
       .field
         = f.label :email
         %br/
-        = f.email_field :email
+        = f.email_field :email, {placeholder: "メールアドレスを入力してください"}
       .field
         = f.label :password
         - if @validatable
           %em
             (#{@minimum_password_length} characters minimum)
         %br/
-        = f.password_field :password, autocomplete: "off"
+        = f.password_field :password, {placeholder: "パスワードを入力してください", autocomplete: "off"}
       .field
         = f.label :password_confirmation
         %br/
-        = f.password_field :password_confirmation, autocomplete: "off"
+        = f.password_field :password_confirmation, {placeholder: "パスワードを入力してください", autocomplete: "off"}
       .actions
         = f.submit "Sign up"

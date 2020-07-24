@@ -1,0 +1,6 @@
+- if user_signed_in?
+  = link_to new_diary_path, class: "exhibitionBtn" do
+    .exhibitionBtn__box
+      .exhibitionbox__text
+        投稿する
+      = image_tag "icon_camera.png", size: "54x54", class: "exhibitionbox--icon"

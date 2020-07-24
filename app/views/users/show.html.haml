@@ -1,7 +1,3 @@
-.contents.row
-  %p
-    = @nickname
-    さんの投稿一覧
-  - @diaries.each do |diary|
-    .content_post{:style => "background-image: url(#{diary.image});"}
-      %p= diary.text
+.Wrapper
+  = render "side"
+  = render "main"
