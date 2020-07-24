@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   root to: 'diaries#index'
   resources :diaries do
     resources :comments, only: :create
@@ -7,6 +9,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :users, only: :show 
+  resources :users
 end
 
