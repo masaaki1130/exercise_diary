@@ -1,0 +1,9 @@
+.contents.row
+  .container
+    %h2 Sign up
+    = form_for(@address, method: :post) do |f|
+      = devise_error_messages!
+      .field
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択して下さい", selected: "選択して下さい"}
+      .actions
+        = f.submit "Sign up"
