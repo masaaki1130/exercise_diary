@@ -4,11 +4,11 @@
       = link_to user_path(current_user) do
         .side__bar__title
           %p= "マイページ"
-    .side__bar
       = link_to new_diary_path do
         .side__bar__title
           %p= "投稿"
-    .side__bar
-      = link_to "#" do
-        .side__bar__title
-          %p= "天気予報"
+    .side__content
+      .side__bar__list
+        %p= "天気予報"
+      %h3.weather-text
+        = render "weather"
