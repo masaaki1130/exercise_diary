@@ -12,7 +12,7 @@ class DiariesController < ApplicationController
   def create
     @diary= Diary.create(diary_params)
     if @diary.save
-      redirect_to root_path
+      render :create
     else
       render :new
     end
