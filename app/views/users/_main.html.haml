@@ -1,7 +1,7 @@
 .contents.main
   %p
     = @nickname
-    さんの投稿一覧
+    さんの投稿一覧!
   - @diaries.each do |diary|
     .content_post{:style => "background-image: url(#{diary.image});"}
       .more
