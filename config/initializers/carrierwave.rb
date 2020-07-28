@@ -5,7 +5,7 @@ require 'carrierwave/storage/fog'
 CarrierWave.configure do |config|
   if Rails.env.production? || Rails.env.development? 
     config.storage :file
-  elseif Rails.env.production?
+  elsif Rails.env.production?
     config.storage = :fog
     config.fog_provider = 'fog/aws'
     config.fog_public = false 
