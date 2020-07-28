@@ -10,12 +10,7 @@ class DiariesController < ApplicationController
   end
 
   def create
-    @diary = Diary.create(diary_params)
-    if @diary.save
-      render :create
-    else
-      render :new
-    end
+    Diary.create(diary_params)
   end
 
   def destroy
