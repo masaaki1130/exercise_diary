@@ -30,9 +30,51 @@
   <a href="https://aws.amazon.com/jp/"><img src="https://d0.awsstatic.com/logos/powered-by-aws.png" height="45px;" /></a>
 </p>
 
-## :globe_with_meridians: サイト紹介
-<ul>
-  <li>ユーザー名 : sample</li>
-  <li>パスワード : aaaaaaa</li>
-  <li>IPアドレス : https://exercisediary.herokuapp.com/</li>
-</ul>
+## :page_facing_up: ER図
+
+![データベース ER 図 (カラスの足記法)](https://user-images.githubusercontent.com/66311435/88774088-fb198800-d1bd-11ea-88a2-dacabda2d769.png)
+
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+### Association
+- has_many :comments
+- has_many :diaries
+- has_one :address
+
+### addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|prefecture_id|string|null: false|
+### Association
+- belongs_to :user
+- belongs_to_active_hash :prefecture
+
+### diariesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|text|text|null: false|
+|content|text|null: false||
+|image|string|null: false|
+|diary_day|date|null: false|
+|user_id|references|null: false, foreign_key: true|
+### Association
+- has_many :comments
+- belongs_to :user
+- accepts_nested_attributes_for :images, allow_destroy: true
+
+
+### commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|diary_id|references|null: false, foreign_key: true|
+|text|text|null: false|
+### Association
+- belongs_to :diary
+- belongs_to :user 
